@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday ✨</title>
+<meta name="theme-color" content="#080713">
+<meta name="description" content="A little universe, made just for you.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS v4 – official browser build (prototype only; see README for the production CLI build) -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --color-midnight: #080713;
+    --color-navy: #111127;
+    --color-royal: #5B2B91;
+    --color-cosmic: #9D6BFF;
+    --color-rose: #F4A5C5;
+    --color-gold: #E8C77B;
+    --color-ivory: #FFF6E9;
+    --font-display: "Cinzel", "Trajan Pro", Georgia, serif;
+    --font-serif: "Cormorant Garamond", Georgia, serif;
+    --font-sans: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-script: "Pinyon Script", "Snell Roundhand", cursive;
+  }
+</style>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="locked bg-midnight text-ivory font-sans antialiased">
+
+<noscript>
+  <p style="position:fixed;inset:0;z-index:99;display:grid;place-items:center;padding:2rem;text-align:center;background:#080713;color:#FFF6E9;font:1.2rem Georgia,serif">
+    This little universe needs JavaScript to come to life. Please enable it and refresh. ✨
+  </p>
+</noscript>
+
+<!-- ================= SVG SPRITE (gradients, icons, shared shapes) ================= -->
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="roseGrad" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#FFD3E4"/><stop offset=".55" stop-color="#F4A5C5"/><stop offset="1" stop-color="#C75B8D"/></radialGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff2cf"/><stop offset=".5" stop-color="#E8C77B"/><stop offset="1" stop-color="#b8893a"/></linearGradient>
+    <linearGradient id="goldBand" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8893a"/><stop offset=".3" stop-color="#fff2cf"/><stop offset=".55" stop-color="#E8C77B"/><stop offset=".8" stop-color="#fff2cf"/><stop offset="1" stop-color="#b8893a"/></linearGradient>
+    <linearGradient id="stemGrad" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b8893a"/><stop offset="1" stop-color="#F3DB9B"/></linearGradient>
+    <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b1559"/><stop offset="1" stop-color="#0d0820"/></linearGradient>
+    <linearGradient id="cakeBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF6E9"/><stop offset="1" stop-color="#F1D9C6"/></linearGradient>
+    <linearGradient id="cakeFrost" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFDDEA"/><stop offset="1" stop-color="#F4A5C5"/></linearGradient>
+    <linearGradient id="cakeTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF1F6"/><stop offset="1" stop-color="#F9CBDD"/></linearGradient>
+    <linearGradient id="plateGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9c7430"/><stop offset=".5" stop-color="#fff2cf"/><stop offset="1" stop-color="#9c7430"/></linearGradient>
+    <linearGradient id="candleBody" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ead9bf"/><stop offset=".5" stop-color="#FFF6E9"/><stop offset="1" stop-color="#dcc7a6"/></linearGradient>
+    <pattern id="stripes" width="9" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="9" height="4" fill="#E8C77B"/></pattern>
+    <pattern id="pearls" width="22" height="12" patternUnits="userSpaceOnUse"><circle cx="11" cy="6" r="3.6" fill="url(#goldGrad)"/></pattern>
+    <linearGradient id="flameGrad" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff9a3c"/><stop offset=".6" stop-color="#ffd36b"/><stop offset="1" stop-color="#fff3c4"/></linearGradient>
+    <radialGradient id="flameHalo"><stop offset="0" stop-color="#ffc864" stop-opacity=".55"/><stop offset="1" stop-color="#ffc864" stop-opacity="0"/></radialGradient>
+    <linearGradient id="boxNavy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#25409a"/><stop offset=".55" stop-color="#14245f"/><stop offset="1" stop-color="#0a1238"/></linearGradient>
+    <linearGradient id="lidNavy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f4cb0"/><stop offset="1" stop-color="#101c4f"/></linearGradient>
+    <linearGradient id="boxSheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".12"/><stop offset=".35" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient>
+    <linearGradient id="ribbonGold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8893a"/><stop offset=".4" stop-color="#fff0c4"/><stop offset=".7" stop-color="#E8C77B"/><stop offset="1" stop-color="#a87a2e"/></linearGradient>
+    <linearGradient id="satin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6d6"/><stop offset=".45" stop-color="#E8C77B"/><stop offset="1" stop-color="#a87a2e"/></linearGradient>
+    <linearGradient id="beamGrad" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffe9a8" stop-opacity=".7"/><stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/></linearGradient>
+    <radialGradient id="goldGlow"><stop offset="0" stop-color="#fff3c4"/><stop offset=".6" stop-color="#E8C77B" stop-opacity=".7"/><stop offset="1" stop-color="#E8C77B" stop-opacity="0"/></radialGradient>
+    <linearGradient id="bfGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4A5C5"/><stop offset="1" stop-color="#9D6BFF"/></linearGradient>
+    <linearGradient id="bfGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8C77B"/><stop offset="1" stop-color="#F4A5C5"/></linearGradient>
+  </defs>
+
+  <!-- Rose (filled illustration) -->
+  <symbol id="rose" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="44" fill="url(#roseGrad)"/>
+    <path d="M50 18c18 0 30 13 28 29-2 17-17 29-33 26-15-3-22-18-17-30 5-11 20-14 28-6 7 7 3 19-7 19-8 0-12-8-7-13" fill="none" stroke="#B94A7E" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+    <path d="M22 40c6-14 22-22 38-19" fill="none" stroke="#FFD6E7" stroke-width="2.5" stroke-linecap="round" opacity=".75"/>
+    <path d="M70 70c-8 9-22 12-33 6" fill="none" stroke="#C9487F" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+  </symbol>
+
+  <symbol id="divider" viewBox="0 0 200 20"><path d="M0 10H82M118 10H200" stroke="currentColor" stroke-width="1" fill="none"/><path d="M100 3l7 7-7 7-7-7z" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="86" cy="10" r="1.6" fill="currentColor"/><circle cx="114" cy="10" r="1.6" fill="currentColor"/></symbol>
+  <symbol id="i-heartfill" viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a4.6 4.6 0 018-3 4.6 4.6 0 018 3c0 6-8 11-8 11z"/></symbol>
+
+  <!-- Gold line icons (stroke inherits from the outer <svg>) -->
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/><path d="M19 17v4M17 19h4"/></symbol>
+  <symbol id="i-flower" viewBox="0 0 24 24"><circle cx="12" cy="6.5" r="3"/><circle cx="17.3" cy="10.6" r="3"/><circle cx="15.3" cy="16.8" r="3"/><circle cx="8.7" cy="16.8" r="3"/><circle cx="6.7" cy="10.6" r="3"/><circle cx="12" cy="12" r="1.4"/></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14c1 2 2.5 3 4 3s3-1 4-3M9 9.5h.01M15 9.5h.01"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2z"/><path d="M12 6v14"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/><path d="M5 19h14"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+  <symbol id="i-friends" viewBox="0 0 24 24"><circle cx="8.5" cy="8.5" r="3"/><circle cx="16.5" cy="8.5" r="3"/><path d="M3 20c0-3.3 2.5-5.5 5.5-5.5S14 16.7 14 20M10 20c0-3.3 2.5-5.5 5.5-5.5S21 16.7 21 20"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 10 10 5 20 4c0 10-5 15-14 15z"/><path d="M5 19c3-5 6-8 11-11"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3.5 8.5h3.2l1.6-2.3h7.4l1.6 2.3h3.2v10.5h-17z"/><circle cx="12" cy="13.6" r="3.4"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+</svg>
+
+<!-- Background sky (stars, dust, shooting stars) and foreground effects (confetti, fireworks) -->
+<canvas id="bgCanvas" aria-hidden="true"></canvas>
+<canvas id="fxCanvas" aria-hidden="true"></canvas>
+<div id="veil" class="veil" aria-hidden="true"></div>
+
+<!-- ============================================================
+     SCENE 1 — CINEMATIC INTRO
+     ============================================================ -->
+<section id="intro" class="intro" aria-label="Opening scene">
+  <div class="intro-cosmos" aria-hidden="true"></div>
+  <div class="intro-dot" aria-hidden="true"></div>
+  <button id="skipIntro" class="skip-btn" type="button" data-cfg="intro.skip"></button>
+
+  <div class="intro-stage">
+    <p id="introLine" class="intro-line" aria-live="polite"></p>
+
+    <div id="introTitleBlock" class="intro-title-block">
+      <h1 id="introTitle" class="intro-title"></h1>
+      <p class="intro-sub" data-cfg="intro.subtitle"></p>
+      <div class="intro-cta">
+        <button id="enterBtn" class="btn btn-gold" type="button" data-cfg="intro.enter"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav id="sceneDots" class="dots" aria-label="Jump to a scene"></nav>
+
+<main id="experience" inert>
+
+  <!-- ============================================================
+       SCENE 2 — MAGICAL COSMIC UNIVERSE
+       ============================================================ -->
+  <section id="universe" class="scene" data-nav="Universe" aria-labelledby="universeTitle">
+    <div class="scene-bg bg-universe" aria-hidden="true">
+      <div class="nebula n1"></div>
+      <div class="nebula n2"></div>
+      <div class="nebula n3"></div>
+
+      <div class="px planet-wrap" style="--d:26">
+        <div class="planet-float">
+          <div class="planet"></div>
+          <div class="ring"></div>
+        </div>
+      </div>
+
+      <div class="px cosmic-bits" style="--d:-16">
+        <i class="bit b-diamond"></i><i class="bit b-ring"></i><i class="bit b-moon"></i><i class="bit b-diamond d2"></i>
+      </div>
+
+      <svg class="px constellation" style="--d:18" viewBox="0 0 220 140">
+        <polyline points="10,110 50,70 95,85 140,35 205,55" fill="none" stroke="rgba(232,199,123,.55)" stroke-width="1"/>
+        <g fill="#FFF6E9"><circle cx="10" cy="110" r="2.4"/><circle cx="50" cy="70" r="2"/><circle cx="95" cy="85" r="2.8"/><circle cx="140" cy="35" r="2.2"/><circle cx="205" cy="55" r="2.6"/></g>
+      </svg>
+    </div>
+
+    <div class="scene-inner">
+      <div class="reveal"><svg class="divider mx-auto" viewBox="0 0 200 20"><use href="#divider"/></svg></div>
+      <h2 id="universeTitle" tabindex="-1" class="t-title gold-text reveal mx-auto max-w-3xl" style="--d:.2s" data-cfg="universe.welcome"></h2>
+      <p class="t-lead reveal mx-auto mt-6 max-w-2xl" style="--d:.7s" data-cfg="universe.line"></p>
+      <div class="reveal mt-10" style="--d:1.2s">
+        <button class="btn btn-gold" type="button" data-goto="#hero" data-cfg="universe.button"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 3 — LUXURY BIRTHDAY HERO
+       ============================================================ -->
+  <section id="hero" class="scene" data-nav="Birthday" aria-labelledby="heroTitle">
+    <div class="scene-bg bg-hero" aria-hidden="true">
+      <div class="px moon-wrap" style="--d:12"><div class="moon moon-hero"></div></div>
+      <div class="particles" id="heroPetals"></div>
+      <div class="particles" id="heroHearts"></div>
+    </div>
+    <div class="frame" aria-hidden="true"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div>
+
+    <div class="scene-inner">
+      <div class="reveal"><svg class="divider mx-auto" viewBox="0 0 200 20"><use href="#divider"/></svg></div>
+      <h2 id="heroTitle" class="hero-heading">
+        <span class="t-display gold-text glow reveal" style="--d:.2s" data-cfg="hero.title"></span>
+        <span class="hero-name gold-text glow reveal" style="--d:.8s" data-cfg="hero.name"></span>
+      </h2>
+      <p class="t-lead reveal mx-auto mt-6 max-w-xl" style="--d:1.3s" data-cfg="hero.subtitle"></p>
+      <div class="reveal mt-10" style="--d:1.7s">
+        <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <button class="btn btn-gold" type="button" data-goto="#garden" data-cfg="hero.begin"></button>
+          <button class="btn btn-ghost" type="button" id="playSongBtn" data-music-label data-cfg="hero.song"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 4 — MAGICAL ROSE GARDEN
+       ============================================================ -->
+  <section id="garden" class="scene garden" data-nav="Garden" aria-labelledby="gardenTitle">
+    <div class="scene-bg bg-garden" aria-hidden="true">
+      <div class="moon-wrap moon-garden"><div class="moon moon-sm"></div></div>
+      <div class="particles" id="gardenFireflies"></div>
+      <div class="particles" id="gardenPetals"></div>
+      <div class="particles" id="gardenButterflies"></div>
+    </div>
+    <svg id="gardenSvg" class="garden-svg" viewBox="0 0 1200 280" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+
+    <div class="scene-inner">
+      <div class="reveal"><svg class="divider mx-auto" viewBox="0 0 200 20"><use href="#divider"/></svg></div>
+      <h2 id="gardenTitle" class="t-title gold-text reveal" style="--d:.15s" data-cfg="garden.heading"></h2>
+      <p class="t-lead reveal mx-auto mt-4 max-w-xl" style="--d:.3s" data-cfg="garden.sub"></p>
+      <ul id="gardenMessages" class="mx-auto mt-10 grid max-w-4xl gap-5 text-left sm:grid-cols-2"></ul>
+      <div class="reveal mt-12" style="--d:.2s">
+        <button class="btn btn-ghost" type="button" data-goto="#story" data-cfg="garden.next"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 5 — FRIENDSHIP STORY
+       ============================================================ -->
+  <section id="story" class="scene" data-nav="Story" aria-labelledby="storyTitle">
+    <div class="scene-bg bg-story" aria-hidden="true"></div>
+    <div class="scene-inner">
+      <div class="reveal"><svg class="divider mx-auto" viewBox="0 0 200 20"><use href="#divider"/></svg></div>
+      <h2 id="storyTitle" class="t-title gold-text reveal" style="--d:.15s" data-cfg="story.heading"></h2>
+      <p class="t-lead reveal mx-auto mt-4 max-w-xl" style="--d:.3s" data-cfg="story.sub"></p>
+      <ol id="timeline" class="timeline mx-auto mt-14 max-w-4xl text-left"><li class="tl-line" aria-hidden="true"></li></ol>
+      <div class="reveal mt-14">
+        <button class="btn btn-ghost" type="button" data-goto="#letter" data-cfg="story.next"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 6 — HEARTFELT FRIENDSHIP LETTER
+       ============================================================ -->
+  <section id="letter" class="scene" data-nav="Letter" aria-labelledby="letterTeaser">
+    <div class="scene-bg bg-letter" aria-hidden="true"></div>
+    <div class="scene-inner">
+      <h2 id="letterTeaser" class="t-lead reveal mx-auto max-w-2xl" data-cfg="letter.teaser"></h2>
+
+      <div class="reveal mt-6" style="--d:.3s">
+        <div id="envelopeWrap" class="envelope-wrap">
+          <div id="envelope" class="envelope">
+            <div class="env-back"></div>
+            <div class="env-paper" aria-hidden="true"></div>
+            <div class="env-front" aria-hidden="true"><div class="env-l"></div><div class="env-r"></div><div class="env-b"></div></div>
+            <div class="env-flap" aria-hidden="true"></div>
+            <p class="env-to"><span data-cfg="letter.envelopeTo"></span><small id="envNick" hidden data-cfg="letter.envelopeNick"></small></p>
+            <button id="waxSeal" class="wax-seal" type="button" aria-label="Break the wax seal and open your letter"><span aria-hidden="true">M</span></button>
+          </div>
+          <div><button id="openLetterBtn" class="btn btn-gold" type="button" data-cfg="letter.openLabel"></button></div>
+        </div>
+      </div>
+
+      <article id="letterSheet" class="letter-sheet" hidden aria-label="Your letter">
+        <div class="sheet-inner">
+          <div id="letterFull" class="sr-only"></div>
+          <div class="sheet-stack">
+            <div id="letterGhost" class="ls-layer ls-ghost" aria-hidden="true"></div>
+            <div id="letterTyped" class="ls-layer" aria-hidden="true">
+              <p class="ls-p ls-sign">Harsh budheliya</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <button id="skipTypingBtn" class="btn btn-ghost" type="button" hidden data-cfg="letter.skipTyping"></button>
+        <button id="letterNext" class="btn btn-gold" type="button" hidden data-goto="#cake" data-cfg="letter.continue"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 7 — INTERACTIVE BIRTHDAY CAKE
+       ============================================================ -->
+  <section id="cake" class="scene" data-nav="Cake" aria-labelledby="cakeTitle">
+    <div class="scene-bg bg-cake" aria-hidden="true"></div>
+    <div class="scene-inner">
+      <h2 id="cakeTitle" class="t-title gold-text reveal" data-cfg="cake.title"></h2>
+      <p class="t-lead reveal mx-auto mt-4 max-w-xl" style="--d:.2s" data-cfg="cake.subtitle"></p>
+
+      <div class="reveal mt-8" style="--d:.3s">
+        <div id="cakeStage" class="cake-stage">
+          <div class="cake-glow" aria-hidden="true"></div>
+          <svg id="cakeSvg" class="cake-svg" viewBox="0 20 400 400" role="img" aria-label="A three-tier blush and ivory birthday cake with gold trim, roses and three glowing candles"></svg>
+        </div>
+      </div>
+
+      <div class="reveal mt-6" style="--d:.4s">
+        <button id="blowBtn" class="btn btn-gold" type="button" data-cfg="cake.button"></button>
+      </div>
+
+      <p id="cakeMessage" class="glow-message mx-auto mt-8 max-w-2xl" aria-hidden="true" data-cfg="cake.message"></p>
+      <div id="cakeNext" class="mt-8" hidden>
+        <button class="btn btn-ghost" type="button" data-goto="#gift" data-cfg="cake.next"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 8 — LUXURY GIFT BOX
+       ============================================================ -->
+  <section id="gift" class="scene" data-nav="Gift" aria-labelledby="giftTitle">
+    <div class="scene-bg bg-gift" aria-hidden="true"></div>
+    <div class="scene-inner">
+      <h2 id="giftTitle" class="t-title gold-text reveal" data-cfg="gift.title"></h2>
+
+      <div class="reveal mt-6" style="--d:.25s">
+        <div id="giftStage" class="gift-stage">
+          <div class="gift-spot" aria-hidden="true"></div>
+          <i class="sparkle s1" aria-hidden="true"></i><i class="sparkle s2" aria-hidden="true"></i><i class="sparkle s3" aria-hidden="true"></i><i class="sparkle s4" aria-hidden="true"></i>
+          <svg id="giftSvg" class="gift-svg" viewBox="0 0 360 340" role="img" aria-label="A dark blue gift box tied with a golden satin ribbon">
+            <ellipse cx="180" cy="324" rx="140" ry="13" fill="#000" opacity=".5"/>
+            <path class="gift-beam" d="M96 150 L10 -80 H350 L264 150Z" fill="url(#beamGrad)"/>
+            <rect x="60" y="150" width="240" height="168" rx="6" fill="url(#boxNavy)" stroke="rgba(232,199,123,.4)"/>
+            <rect x="60" y="150" width="240" height="168" rx="6" fill="url(#boxSheen)"/>
+            <g class="rib rib-l"><rect x="158" y="150" width="22" height="168" fill="url(#ribbonGold)"/></g>
+            <g class="rib rib-r"><rect x="180" y="150" width="22" height="168" fill="url(#ribbonGold)"/></g>
+            <ellipse cx="180" cy="150" rx="112" ry="8" fill="#04030a"/>
+            <ellipse class="gift-glow" cx="180" cy="148" rx="104" ry="9" fill="url(#goldGlow)"/>
+            <g id="giftLid">
+              <rect x="46" y="108" width="268" height="50" rx="7" fill="url(#lidNavy)" stroke="rgba(232,199,123,.55)"/>
+              <rect x="158" y="108" width="44" height="50" fill="url(#ribbonGold)"/>
+              <path d="M52 114h256" stroke="#fff" stroke-opacity=".18" stroke-width="2" stroke-linecap="round"/>
+              <g class="bow">
+                <path class="tail" d="M174 112L146 162L168 154L180 122Z" fill="url(#satin)"/>
+                <path class="tail" d="M186 112L214 162L192 154L180 122Z" fill="url(#satin)"/>
+                <path class="bow-loop bl" d="M180 108C142 62 96 78 118 106C134 124 168 116 180 108Z" fill="url(#satin)"/>
+                <path class="bow-loop br" d="M180 108C218 62 264 78 242 106C226 124 192 116 180 108Z" fill="url(#satin)"/>
+                <path d="M170 104C150 82 128 86 128 98M190 104C210 82 232 86 232 98" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+                <ellipse cx="180" cy="110" rx="12" ry="10" fill="url(#satin)"/>
+              </g>
+            </g>
+          </svg>
+          <div id="giftMagic" class="gift-magic" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="reveal mt-8" style="--d:.35s">
+        <button id="giftBtn" class="btn btn-gold" type="button" data-cfg="gift.button"></button>
+      </div>
+
+      <div id="giftMessage" class="gift-message glass mx-auto mt-8 max-w-2xl" hidden></div>
+      <div id="giftNext" class="mt-8" hidden>
+        <button class="btn btn-ghost" type="button" data-goto="#wishes" data-cfg="gift.next"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 9 — SEVEN BIRTHDAY WISHES
+       ============================================================ -->
+  <section id="wishes" class="scene" data-nav="Wishes" aria-labelledby="wishesTitle">
+    <div class="scene-bg bg-wishes" aria-hidden="true"></div>
+    <div class="scene-inner">
+      <div class="reveal"><svg class="divider mx-auto" viewBox="0 0 200 20"><use href="#divider"/></svg></div>
+      <h2 id="wishesTitle" class="t-title gold-text reveal mx-auto max-w-3xl" style="--d:.15s" data-cfg="wishes.title"></h2>
+      <p class="t-lead reveal mx-auto mt-4 max-w-xl" style="--d:.3s" data-cfg="wishes.hint"></p>
+      <div id="wishList" class="mx-auto mt-10 flex max-w-5xl flex-wrap items-start justify-center gap-4"></div>
+      <div class="reveal mt-12">
+        <button class="btn btn-gold" type="button" data-goto="#finale" data-cfg="wishes.next"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 10 — GRAND CINEMATIC FINALE
+       ============================================================ -->
+  <section id="finale" class="scene finale" data-nav="Finale" aria-labelledby="finaleTitle">
+    <div class="scene-bg bg-finale" aria-hidden="true">
+      <div class="px moon-wrap moon-finale" style="--d:14"><div class="moon moon-lg"></div></div>
+      <div class="nebula nf1"></div>
+      <div class="nebula nf2"></div>
+      <div class="particles" id="finaleLanterns"></div>
+      <div class="particles" id="finalePetals"></div>
+      <svg class="horizon" viewBox="0 0 1200 200" preserveAspectRatio="none">
+        <defs><linearGradient id="hillGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1458"/><stop offset="1" stop-color="#07050f"/></linearGradient></defs>
+        <path d="M0 200V120C140 80 260 140 420 110S720 70 880 112 1100 100 1200 80V200Z" fill="url(#hillGrad)"/>
+        <path d="M0 120C140 80 260 140 420 110S720 70 880 112 1100 100 1200 80" fill="none" stroke="#E8C77B" stroke-opacity=".55" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div id="finaleLines" class="finale-lines" aria-live="polite">
+      <p class="fline" data-cfg="finale.lines.0"></p>
+      <p class="fline" data-cfg="finale.lines.1"></p>
+      <p class="fline" data-cfg="finale.lines.2"></p>
+    </div>
+
+    <div id="finaleReveal" class="scene-inner finale-reveal is-pending">
+      <h2 id="finaleTitle" class="t-display gold-text glow fx-r mx-auto max-w-4xl" data-cfg="finale.title"></h2>
+      <p class="t-lead fx-r mx-auto mt-8 max-w-2xl" style="--d:.9s" data-cfg="finale.message"></p>
+      <p class="finale-thanks fx-r mx-auto mt-8" style="--d:1.5s" data-cfg="finale.thanks"></p>
+      <p class="finale-thanks fx-r mx-auto mt-3" style="--d:2s" data-cfg="finale.stay"></p>
+      <p id="finaleNick" class="finale-nick fx-r mx-auto mt-3" style="--d:2.3s" hidden data-cfg="finale.nickLine"></p>
+      <p class="finale-final gold-text fx-r mx-auto mt-10 max-w-3xl" style="--d:2.8s" data-cfg="finale.final"></p>
+      <div class="fx-r mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap" style="--d:3.4s">
+        <button id="celebrateBtn" class="btn btn-gold" type="button" data-cfg="finale.celebrate"></button>
+        <button id="replayBtn" class="btn btn-ghost" type="button" data-cfg="finale.replay"></button>
+        <button id="letterAgainBtn" class="btn btn-ghost" type="button" data-cfg="finale.letterAgain"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MONKEY SELFIE GALLERY (after the finale, before the final note)
+       ============================================================ -->
+  <section id="monkeys" class="scene monkeys" data-nav="Monkeys" aria-labelledby="monkeyTitle">
+    <div class="scene-bg bg-monkeys" aria-hidden="true">
+      <div class="mk-stars"></div>
+      <div class="mk-stars s2"></div>
+      <i class="mk-shoot" style="--t:5%;--l:78%;--dl:1s"></i>
+      <i class="mk-shoot" style="--t:30%;--l:90%;--dl:4.5s"></i>
+      <i class="mk-shoot" style="--t:58%;--l:72%;--dl:7s"></i>
+      <i class="mk-shoot" style="--t:82%;--l:88%;--dl:2.5s"></i>
+    </div>
+
+    <div class="scene-inner mk-inner">
+      <!-- Intro -->
+      <header class="mk-intro">
+        <h2 id="monkeyTitle" class="mk-heading">
+          <span id="monkeyKicker" class="t-display gold-text glow reveal" data-cfg="monkeys.kicker"></span>
+          <span class="mk-headline reveal" style="--d:.45s" data-cfg="monkeys.title"></span>
+        </h2>
+        <p class="t-lead reveal mx-auto mt-6 max-w-2xl" style="--d:.9s" data-cfg="monkeys.subtitle"></p>
+        <div class="reveal mt-9" style="--d:1.3s">
+          <button class="btn btn-gold" type="button" data-goto="#monkeyGallery" data-cfg="monkeys.button"></button>
+        </div>
+      </header>
+
+      <!-- Gallery -->
+      <ul id="monkeyGallery" class="mk-grid mt-16 columns-1 gap-5 text-left min-[560px]:columns-2 lg:columns-3 2xl:columns-4" aria-label="Monkey photo gallery"></ul>
+      <p class="mk-note reveal mx-auto mt-4 max-w-2xl" data-cfg="monkeys.note"></p>
+
+      <!-- Which monkey has your energy? -->
+      <div class="mk-quiz glass reveal">
+        <h3 id="quizTitle" class="t-title gold-text" data-cfg="monkeys.quiz.title"></h3>
+        <p class="t-lead mt-3" data-cfg="monkeys.quiz.question"></p>
+        <p class="mk-hint mt-2" data-cfg="monkeys.quiz.hint"></p>
+        <div id="quizOptions" class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4" role="group" aria-labelledby="quizTitle"></div>
+        <div id="quizResult" class="mk-result" role="status" aria-live="polite" hidden>
+          <p class="qr-found"></p>
+          <p class="qr-name"></p>
+          <p class="qr-msg"></p>
+        </div>
+      </div>
+
+      <!-- Final gallery message -->
+      <div class="mk-final">
+        <div class="reveal"><svg class="divider mx-auto" viewBox="0 0 200 20"><use href="#divider"/></svg></div>
+        <p class="t-lead reveal mx-auto mt-6 max-w-3xl" style="--d:.2s" data-cfg="monkeys.final.message"></p>
+        <p id="mkBirthday" class="t-title gold-text glow reveal mt-8" style="--d:.4s" data-cfg="monkeys.final.birthday"></p>
+        <div class="reveal mt-9" style="--d:.6s">
+          <button class="btn btn-gold" type="button" data-goto="#lastnote" data-cfg="monkeys.final.button"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FINAL NOTE — "One Last Thing" (after the finale, before the footer)
+       ============================================================ -->
+  <section id="lastnote" class="scene" data-nav="Note" aria-labelledby="noteTitle">
+    <div class="scene-bg bg-lastnote" aria-hidden="true">
+      <div class="particles" id="noteGlow"></div>
+      <div class="particles" id="noteHearts"></div>
+    </div>
+    <div class="scene-inner">
+      <div class="note-card glass reveal">
+        <div class="note-art reveal" style="--d:.3s" aria-hidden="true">
+          <svg viewBox="0 0 120 92" fill="none" stroke="#E8C77B" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+            <rect x="8" y="22" width="104" height="64" rx="7" fill="rgba(255,246,233,.06)"/>
+            <path d="M8 28l52 36 52-36"/>
+            <path d="M8 84l38-30M112 84L74 54" opacity=".55"/>
+            <g class="note-heart"><use href="#i-heartfill" x="40" y="2" width="40" height="40" fill="#F4A5C5" stroke="none"/></g>
+          </svg>
+        </div>
+        <h2 id="noteTitle" class="t-title gold-text reveal" style="--d:.5s" data-cfg="lastNote.title"></h2>
+        <div id="noteBody" class="note-body"></div>
+        <div class="note-close reveal" style="--d:.2s">
+          <p class="note-wish" data-cfg="lastNote.wish"></p>
+          <p class="note-from" data-cfg="lastNote.from"></p>
+          <p class="note-sign gold-text" data-cfg="lastNote.signature"></p>
+        </div>
+        <div class="reveal mt-8" style="--d:.2s">
+          <button id="reviewBtn" class="btn btn-gold" type="button" aria-expanded="false" aria-controls="reviewNote" data-cfg="lastNote.button"></button>
+        </div>
+        <p id="reviewNote" class="review-note" role="status" hidden data-cfg="lastNote.reviewMessage"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p data-cfg="footer.credit"></p>
+  </footer>
+</main>
+
+<!-- ================= MUSIC PLAYER ================= -->
+<div id="player" class="player" role="group" aria-label="Background music">
+  <button id="playBtn" class="icon-btn" type="button" aria-label="Play music" aria-pressed="false">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use id="playIcon" href="#i-play"/></svg>
+  </button>
+  <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <button id="muteBtn" class="icon-btn" type="button" aria-label="Mute music" aria-pressed="false">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use id="muteIcon" href="#i-volume"/></svg>
+  </button>
+  <label class="sr-only" for="musicSelect">Choose birthday song</label>
+  <select id="musicSelect" class="music-select" aria-label="Change music">
+    <option value="assets/music/birthday-song.mp3">Birthday Song 1</option>
+    <option value="assets/music/birthday-2song.mp3">Birthday Song 2</option>
+    <option value="assets/music/birthday-3song.mp3">Birthday Song 3</option>
+  </select>
+  <input id="volume" class="volume" type="range" min="0" max="100" step="1" value="60" aria-label="Music volume">
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<audio id="bgm" loop preload="none"></audio>
+
+<!-- ================= PHOTO LIGHTBOX ================= -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle" hidden>
+  <button id="lbClose" class="lb-btn lb-close" type="button" aria-label="Close photo viewer">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-close"/></svg>
+  </button>
+  <div class="lb-inner">
+    <button id="lbPrev" class="lb-btn lb-prev" type="button" aria-label="Previous photo">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-prev"/></svg>
+    </button>
+    <figure id="lbFig" class="lb-fig">
+      <div id="lbMedia" class="lb-media"></div>
+      <figcaption class="lb-cap">
+        <p id="lbCount" class="lb-count"></p>
+        <h3 id="lbTitle" class="lb-title"></h3>
+        <p id="lbText" class="lb-text"></p>
+        <p id="lbCredit" class="lb-credit" hidden></p>
+      </figcaption>
+    </figure>
+    <button id="lbNext" class="lb-btn lb-next" type="button" aria-label="Next photo">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-next"/></svg>
+    </button>
+  </div>
+</div>
+
+<template id="tpl-butterfly">
+  <svg viewBox="0 0 60 50" class="bf-svg" aria-hidden="true" focusable="false">
+    <g class="wing wing-l"><path d="M30 25C20 4 2 2 4 18c1 12 14 16 26 9z" fill="url(#bfGrad)"/><path d="M30 27C20 30 10 44 18 46c8 1 12-10 12-19z" fill="url(#bfGrad2)"/></g>
+    <g class="wing wing-r"><path d="M30 25C40 4 58 2 56 18c-1 12-14 16-26 9z" fill="url(#bfGrad)"/><path d="M30 27C40 30 50 44 42 46c-8 1-12-10-12-19z" fill="url(#bfGrad2)"/></g>
+    <ellipse cx="30" cy="26" rx="1.8" ry="9" fill="#FFF6E9"/>
+  </svg>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>
